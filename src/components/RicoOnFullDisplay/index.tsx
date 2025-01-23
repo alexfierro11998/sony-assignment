@@ -1,10 +1,19 @@
 import React from "react";
 import useDataContext from "../../Context/context";
 import { ricoImagePaths } from "../../util/functions";
+import { useImagePreloader } from "../../util/hooks";
 
 const RicoOnFullDisplay: React.FC = () => {
   const { selectedImageIndex } = useDataContext();
   const imagePaths = ricoImagePaths("background");
+  const imagesPreloaded = useImagePreloader([
+    ...imagePaths,
+    "assets/images/1-foreground-cutout.webp",
+  ]);
+
+  if (!imagesPreloaded) {
+    return <div className="absolute inset-0 w-full bg-black" />;
+  }
 
   return (
     <div className="absolute inset-0 w-full">
