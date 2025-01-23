@@ -40,7 +40,7 @@ const RicoOnFullDisplay: React.FC = () => {
         <img
           src={`/assets/images/${selectedImageIndex + 1}-background.webp`}
           alt="background"
-          className="ml-auto"
+          className="ml-auto w-[72%]"
         />
         {selectedImageIndex === 0 && (
           <img
