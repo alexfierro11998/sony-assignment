@@ -1,4 +1,3 @@
-import React from "react";
 import Selections from "./Selections";
 
 const Carousel: React.FC = () => {

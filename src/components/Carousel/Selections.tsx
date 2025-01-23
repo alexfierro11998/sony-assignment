@@ -23,19 +23,17 @@ const Selections: React.FC = () => {
                 : baseStyles
             }`}
           >
-            <picture
+            <div
               className={`${
                 selectedImageIndex === index ? Styles["selected-border"] : ""
               }`}
             >
-              <source media="(min-width:2560px)" srcSet={image} />
-              <source media="(max-width:1920px)" srcSet={image} />
               <img
-                className="w-full h-auto rounded-md"
+                className={`w-full h-auto rounded-md`}
                 alt="thumbnail"
                 src={image}
               />
-            </picture>
+            </div>
           </div>
         </button>
       ))}

@@ -1,4 +1,3 @@
-import React from "react";
 import Title from "./Title";
 import Status from "./Status";
 import Name from "./Name";

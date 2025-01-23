@@ -1,5 +1,3 @@
-import React from "react";
-
 const Description: React.FC = () => {
   return (
     <div className="normal-case font-medium description text-white text-[14px] md:text-[16px] w-[90%] md:w-1/2">

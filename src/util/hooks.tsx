@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 
+/*
+ * create image object for each path
+ * and allow browser to cache the images
+ * did this to optimize UX :)
+ */
 export const useImagePreloader = (imagePaths: string[]) => {
-  const [imagesPreloaded, setImagesPreloaded] = useState(false);
+  const [imagesPreloaded, setImagesPreloaded] = useState<boolean>(false);
 
   useEffect(() => {
     const loadImage = (path: string): Promise<void> => {

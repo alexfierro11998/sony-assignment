@@ -15,7 +15,7 @@ interface ContextTypes {
 const DataContext = createContext<ContextTypes | null>(null);
 
 export const DataContextProvider = ({ children }: ProviderProps) => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
 
   return (
     <DataContext.Provider value={{ selectedImageIndex, setSelectedImageIndex }}>
