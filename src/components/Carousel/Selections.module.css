@@ -1,0 +1,15 @@
+.selected-border::before {
+    background: linear-gradient(-125deg,#fff,#000 40%,#fff) border-box;
+    border: 2px solid #0000;
+    border-radius: 12px;
+    bottom: 0;
+    content: "";
+    left: 0;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    mask-composite: add, add;
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
