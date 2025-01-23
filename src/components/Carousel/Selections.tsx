@@ -1,4 +1,3 @@
-import React, { useState, useMemo } from "react";
 import Styles from "./Selections.module.css";
 import useDataContext from "../../Context/context";
 import { ricoImagePaths } from "../../util/functions";
