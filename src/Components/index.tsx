@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import RicoOnFullDisplay from "./RicoOnFullDisplay";
 import Carousel from "./Carousel";
-import CarouselControls from "./CarouselControls";
+import Controls from "./Controls";
 import useDataContext, { ContextTypes } from "../Context/context";
 
 const Components: React.FC = () => {
@@ -34,7 +34,7 @@ const Components: React.FC = () => {
   return (
     <main className="flex flex-col mt-[20vh] lg:my-[18vh] lg:px-24 lg:pt-24 p-8 relative bg-black">
       <RicoOnFullDisplay />
-      <CarouselControls />
+      <Controls />
       <Carousel />
     </main>
   );

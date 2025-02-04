@@ -4,9 +4,9 @@ interface Props {
 
 const Title: React.FC<Props> = ({ title }) => {
   return (
-    <h2 className="text-white font-black text-4xl mb-8 text-[17px] md:text-[31px] leading-[1.2]">
+    <h1 className="font-black my-4 text-white uppercase text-[49px] md:[35px] ">
       {title}
-    </h2>
+    </h1>
   );
 };
 
