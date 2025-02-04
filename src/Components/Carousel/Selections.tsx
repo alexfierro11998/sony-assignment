@@ -1,16 +1,17 @@
 import Styles from "./Selections.module.css";
-import useDataContext from "../../Context/context";
+import useDataContext, { ContextTypes } from "../../Context/context";
 import { ricoImagePaths } from "../../util/functions";
 
 const Selections: React.FC = () => {
-  const { selectedImageIndex, setSelectedImageIndex } = useDataContext();
+  const { selectedImageIndex, setSelectedImageIndex, slideData }: ContextTypes =
+    useDataContext();
   const selectedStyles =
     "rounded-md border-thumbnail md:w-[160px] lg:w-full lg:max-w-[200px] xl:w-[280px]";
   const baseStyles =
     "p-2 w-full md:w-[160px] lg:w-full lg:max-w-[140px] xl:w-[160px] h-auto relative ";
   return (
     <>
-      {ricoImagePaths("thumbnail").map((image, index) => (
+      {ricoImagePaths(slideData, "thumbnail").map((image, index) => (
         <button
           onClick={() => setSelectedImageIndex(index)}
           className="w-1/3 flex justify-center items-center cursor-pointer transition-all duration-500"

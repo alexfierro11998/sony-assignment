@@ -7,24 +7,53 @@ interface ProviderProps {
   children: React.ReactNode;
 }
 
-interface ContextTypes {
+export interface SlideDataType {
+  thumbnail: `${string}.webp`;
+  thumbnailAlt: string;
+  background: `${string}.webp`;
+  backgroundAlt: string;
+  cutout?: `${string}.webp`;
+  cutoutAlt?: string;
+  headline: string;
+  title: string;
+  overline: string;
+  paragraph: string;
+  button: "Learn More";
+  buttonLink: "https://www.playstation.com/";
+}
+
+export interface ContextTypes {
   selectedImageIndex: number;
   setSelectedImageIndex: (index: number) => void;
+  slideData: Array<SlideDataType> | null;
+  setSlideData: (data: Array<SlideDataType>) => void;
+  loading: boolean;
+  setLoading: (value: boolean) => void;
 }
 
 const DataContext = createContext<ContextTypes | null>(null);
 
 export const DataContextProvider = ({ children }: ProviderProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [slideData, setSlideData] = useState<Array<SlideDataType> | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   return (
-    <DataContext.Provider value={{ selectedImageIndex, setSelectedImageIndex }}>
+    <DataContext.Provider
+      value={{
+        selectedImageIndex,
+        setSelectedImageIndex,
+        slideData,
+        setSlideData,
+        loading,
+        setLoading,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
 };
 
-// Custom hook to bypass needing to null check
 const useDataContext = () => {
   const context = useContext(DataContext);
   if (!context) {
