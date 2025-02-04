@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import RicoOnFullDisplay from "./RicoOnFullDisplay";
 import Carousel from "./Carousel";
 import Controls from "./Controls";
-import useDataContext, { ContextTypes } from "../Context/context";
+import useDataContext from "../AppContext";
+import { ContextTypes } from "../AppContext/types";
 
 const Components: React.FC = () => {
   const { setLoading, setSlideData }: ContextTypes = useDataContext();
@@ -28,11 +29,15 @@ const Components: React.FC = () => {
   }, []);
 
   if (error) {
-    return <></>;
+    return (
+      <h1 className="font-black text-[50px] mt-[20vh] lg:my-[18vh] lg:px-24 lg:py-24 p-8 relative bg-black text-center h-[75vh] content-center">
+        Oops! Rico isn't here right now. Try back later!
+      </h1>
+    );
   }
 
   return (
-    <main className="flex flex-col mt-[20vh] lg:my-[18vh] lg:px-24 lg:pt-24 p-8 relative bg-black">
+    <main className="flex flex-col mt-[20vh] lg:my-[18vh] lg:px-24 lg:pt-24 p-8 relative bg-black min-h-[110vh]">
       <RicoOnFullDisplay />
       <Controls />
       <Carousel />

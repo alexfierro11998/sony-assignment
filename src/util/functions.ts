@@ -1,11 +1,11 @@
 type ImagePathType = 'background' | 'thumbnail'
-import { SlideDataType } from "../Context/context";
+import { SlideDataType } from "../AppContext/types";
 
 
 // helper function to keep code DRY when fetching images
 export const ricoImagePaths = (slideData: Array<SlideDataType> | null, type: ImagePathType) => {
     if (!slideData) return [];
-    console.log(slideData)
+
     return slideData.reduce<string[]>((accu, slide) => {
         const newRefPoint = [...accu];
         if (type === "background" && slide.cutout) {
