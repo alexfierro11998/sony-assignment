@@ -32,7 +32,7 @@ const RicoOnFullDisplay: React.FC = () => {
   return (
     <div className="absolute inset-0 w-full">
       <div className="relative ">
-        <div className="absolute inset-0 bg-gradient-to-l from-[#252d3700] from-40% via-[#000000] via-72.92% to-[#09101A] to-100%  z-20 min-h-[110vh]" />
+        <div className="absolute inset-0 bg-gradient-to-l from-[#252d3700] from-40% via-[#000000] via-72.92% to-[#09101A] to-100%  z-20 min-h-[115vh]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#00000000] from-75% to-[#000000] to-100% z-10 left-50" />
         <img
           src={slideData?.[selectedImageIndex].background}

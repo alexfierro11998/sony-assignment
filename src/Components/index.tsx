@@ -37,7 +37,7 @@ const Components: React.FC = () => {
   }
 
   return (
-    <main className="flex flex-col mt-[20vh] lg:my-[18vh] lg:px-24 lg:pt-24 p-8 relative bg-black min-h-[110vh]">
+    <main className="flex flex-col mt-[20vh] lg:my-[18vh] lg:px-24 lg:pt-24 p-8 relative bg-black min-h-[115vh]">
       <RicoOnFullDisplay />
       <Controls />
       <Carousel />
