@@ -30,7 +30,7 @@ export const DataContextProvider = ({ children }: ProviderProps) => {
 const useDataContext = () => {
   const context = useContext(DataContext);
   if (!context) {
-    throw new Error("useDataContext must be used within a context provioder");
+    throw new Error("useDataContext must be used within a context provider");
   }
   return context;
 };
