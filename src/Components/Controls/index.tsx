@@ -4,11 +4,13 @@ import Title from "./Title";
 import Paragraph from "./Paragraph";
 import Button from "./Button";
 import useDataContext from "../../AppContext";
+import { ContextTypes, SlideDataType } from "../../AppContext/types";
 
-const CarouselControls: React.FC = () => {
-  const { slideData, selectedImageIndex, loading } = useDataContext();
+const Controls: React.FC = () => {
+  const { slideData, selectedImageIndex, loading }: ContextTypes =
+    useDataContext();
 
-  const selectedSlide = slideData?.[selectedImageIndex];
+  const selectedSlide = slideData?.[selectedImageIndex] as SlideDataType;
 
   return (
     <div className="w-full z-20">
@@ -25,4 +27,4 @@ const CarouselControls: React.FC = () => {
   );
 };
 
-export default CarouselControls;
+export default Controls;

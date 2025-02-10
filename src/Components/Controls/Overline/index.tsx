@@ -1,3 +1,5 @@
+import { AnimatePresence, motion } from "motion/react";
+
 interface Props {
   overline?: string;
   loading: boolean;
@@ -9,11 +11,30 @@ const Overline: React.FC<Props> = ({ overline, loading }) => {
   const loadedStyles = "border-2 border-solid border-white";
 
   return (
-    <div className={loading ? baseStyles : baseStyles + loadedStyles}>
-      <p className="text-white uppercase text-[12px] md:text-[14px]">
-        {overline}
-      </p>
-    </div>
+    <AnimatePresence mode="wait">
+      {overline && (
+        <motion.div
+          key={overline}
+          initial={{ opacity: 0, borderColor: "transparent" }}
+          animate={{
+            opacity: 1,
+            borderColor: loading ? "transparent" : "white",
+          }}
+          exit={{ opacity: 0, borderColor: "transparent" }}
+          transition={{ duration: 0.3 }}
+          className={baseStyles + (loading ? "" : loadedStyles)}
+          aria-label="Selection Label"
+          role="status"
+        >
+          <p
+            className="text-white uppercase text-[12px] md:text-[14px]"
+            aria-live="polite"
+          >
+            {overline}
+          </p>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
