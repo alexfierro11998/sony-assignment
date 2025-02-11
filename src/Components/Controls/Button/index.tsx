@@ -14,13 +14,17 @@ const Button: React.FC<Props> = ({ buttonText, buttonLink, loading }) => {
    */
 
   const baseStyles =
-    "font-black text-black p-4 rounded-full border-[none] text-[14px] md:text-[16px] ";
+    "font-black text-black p-4 rounded-full border-[none] text-[14px] md:text-[16px]";
   const loadedStyles = "bg-white";
+
+  const loadStyles = loading
+    ? baseStyles
+    : [baseStyles, loadedStyles].join(" ");
 
   return (
     <div className="mt-12">
       <a
-        className={loading ? baseStyles : baseStyles + loadedStyles}
+        className={loadStyles}
         href={buttonLink}
         target="_blank"
         aria-label={`Navigate to ${buttonLink}`}

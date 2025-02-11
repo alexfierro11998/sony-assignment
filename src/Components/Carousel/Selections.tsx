@@ -9,7 +9,16 @@ const Selections: React.FC = () => {
   const selectedStyles =
     "rounded-md border-thumbnail md:w-[160px] lg:w-full lg:max-w-[200px] xl:w-[280px]";
   const baseStyles =
-    "p-2 w-full md:w-[160px] lg:w-full lg:max-w-[140px] xl:w-[160px] h-auto relative ";
+    "p-2 w-full md:w-[160px] lg:w-full lg:max-w-[140px] xl:w-[160px] h-auto relative";
+
+  const getBorderStyles = (index: number) => {
+    const borderStyles =
+      selectedImageIndex === index
+        ? [baseStyles, selectedStyles].join(" ")
+        : baseStyles;
+
+    return borderStyles;
+  };
 
   return (
     <>
@@ -20,13 +29,7 @@ const Selections: React.FC = () => {
           key={`Key: ${index + 1}`}
           aria-hidden={selectedImageIndex === index}
         >
-          <div
-            className={`${
-              selectedImageIndex === index
-                ? baseStyles + selectedStyles
-                : baseStyles
-            }`}
-          >
+          <div className={getBorderStyles(index)}>
             <div
               className={`${
                 selectedImageIndex === index ? Styles["selected-border"] : ""
