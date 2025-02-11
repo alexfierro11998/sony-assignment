@@ -18,6 +18,16 @@ const RicoOnFullDisplay: React.FC = () => {
 
   const currentSlide = slideData?.[selectedImageIndex];
 
+  const baseStyles =
+    "absolute bottom-0 right-[15vw] top-[-90px] h-[calc(100%+70px)] lg:h-[calc(100%+90px)]";
+
+  const spiderStyles = "right-0";
+
+  const stylingForSpiderMan =
+    selectedImageIndex === 5
+      ? [baseStyles, spiderStyles].join(" ")
+      : baseStyles;
+
   return (
     <div className="absolute inset-0 w-full">
       <div className="relative">
@@ -36,9 +46,7 @@ const RicoOnFullDisplay: React.FC = () => {
           <img
             src={currentSlide.cutout}
             alt={currentSlide.cutoutAlt}
-            className={`absolute bottom-0 right-[15vw] top-[-90px] h-[calc(100%+70px)] lg:h-[calc(100%+90px)] ${
-              selectedImageIndex === 5 ? "right-0" : ""
-            }`}
+            className={stylingForSpiderMan}
             aria-label="Cutout Image"
             role="img"
           />
